@@ -52,6 +52,8 @@ $productCard = getProductCard($link);
     <title>Категория</title>
 </head>
 <body>
+<p><a class="back" href="index.php">Назад</a></p>
+<p><a name="top"></a></p>
 <?php foreach ($headCategory as $item) { ?>
     <header class="main-header">
         <h1><?php echo $item['category_name'] ?></h1>
@@ -63,14 +65,19 @@ $productCard = getProductCard($link);
     <?php foreach ($productCard as $product) { ?>
 <section class="product-card">
 <header class="product-card-header">
-<p><?= $item['category_name'] ?></p>
-    <p><?= $product['product_name'] ?></p>
+<p class="category-name"><?= $item['category_name'] ?></p>
+    <p class="product-name"><?= $product['product_name'] ?></p>
 </header>
-    <article class="product-card-article">
-
+    <article class="product-card-photo">
+        <img src="img/<?= $product['photo_url'] ?>"
+             width="300px" height="400px" alt="<?= $product['alt'] ?>">
     </article>
 </section>
         <?php } ?>
     <?php } ?>
 </main>
+<footer>
+    <p><a  class="top" href="#top">Вверх</a></p>
+</footer>
+
 </body>

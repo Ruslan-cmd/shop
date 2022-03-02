@@ -2,12 +2,10 @@ body{
     background-color:#FAF0E6;
 }
 .navigation-menu{
-
     height: 70px;
     display: flex;
     flex-direction: row;
     justify-content:space-between;
-
 }
 .navigation-menu a{
     display:flex;
