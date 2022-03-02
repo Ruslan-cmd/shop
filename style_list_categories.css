@@ -1,0 +1,24 @@
+body{
+    background-color:#FAF0E6;
+}
+.navigation-menu{
+
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+
+}
+.navigation-menu a{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:1px solid #ADD8E6;
+    color:#4682B4;
+    text-decoration: none;
+    font-size:25px;
+    letter-spacing: 2px;
+    text-transform:uppercase;
+    height: 70px;
+    width: 25%;
+}

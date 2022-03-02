@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="style.css">
+<script type='text/javascript' src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<title>Форма регистрации</title>
+<script type='text/javascript'>
+$(document).ready(function(){
+
+$('body').on('click', '#first-photo', function(){
+$("#first-photo").clone().replaceAll($("#right-photo")).css({
+	'height':'100%',
+	'width':'60%',
+	'background-size':'120%'
+	
+}).attr({
+  id: "right-photo",
+});
+});
+$('body').on('click', '#second-photo', function(){
+$("#second-photo").clone().replaceAll($("#right-photo")).css({
+	'height':'100%',
+	'width':'60%',
+	'background-size':'120%'
+}).attr({
+  id: "right-photo",
+});
+});
+$('body').on('click', '#third-photo', function(){
+$("#third-photo").clone().replaceAll($("#right-photo")).css({
+	'height':'100%',
+	'width':'60%',
+	'background-size':'130'
+}).attr({
+  id: "right-photo",
+});
+});
+});
+</script>
+<script type='text/javascript'>
+ $(document).ready(function() {
+ $('body').on('click', '.number-minus', function(){
+ var a = $('.number-minus');
+ var i = ($('.number-text')).val();
+ var input = $('.number-text');
+ if (i<=1){return false}
+ else i--;
+input.val(i);
+input.change();
+ });
+ $('body').on('click', '.number-plus', function(){
+ var a = $('.number-plus');
+ var i = ($('.number-text')).val();
+ var input = $('.number-text');
+ i++;
+input.val(i);
+input.change();
+ });
+ });
+</script>
+<script>
+ $(document).ready(function() {
+ $('body').on('click', '.market', function(){
+ var X = ($('.number-text')).val();
+ alert('В корзину добавлено: ' +X+ ' '+ 'товаров');
+ });
+ });
+</script>
+</head>
+<body>
+<main class = 'main-block'>
+<aside class= 'photo-slide'>
+<article class='left-photos'>
+<a class='first-photo' id='first-photo'>
+<p></p>
+</a>
+<a class='second-photo' id='second-photo'>
+</a>
+<a class='third-photo' id='third-photo'>
+</a>
+<section class='slider-icon'>
+</section>
+</article>
+<a href='#' class='right-photo' id='right-photo'>
+<p></p>
+</a>
+</aside>
+<main class='main-information'>
+<header class= 'clothing-name'>
+<h1 id='h'>Рубашка Medicine</h1>
+<nav class='navigation-menu'>
+<p><a href='#'>Рубашки Medicine</a></p>
+<p><a href='#'>Все модели Medicine</a></p>
+<p><a href='#'>Рубашки</a></p>
+</nav>
+</header>
+<main class='middle-section'>
+<section class='price'>
+<p class='old-price'>
+2 699
+</p>
+<p class='new-price'>
+2 299 &#8381;
+</p>
+<p class='promo-price'>
+2 000 &#8381; <span>- с промокодом</span>
+</p>
+</section>
+<section class='availability-block'>
+<p class='availabile'>В наличии в магазине <span class='first-icon'></span> <a href='#'>Lamoda</a></p>
+<br>
+<p class='delivery'>Бесплатная доставка<span class='second-icon'></span></p>
+</section>
+<section class='counter' data-step="1" data-min="1" data-max="100">
+	<a href="#" class="number-minus">-</a>
+	<input disabled class="number-text" type="text" name="count" value="1">
+	<a href="#" class="number-plus">+</a>
+</section>
+<section class='button'>
+<a href='#' class="market"><b>Купить</b></a>
+<a href='#' class="favorites"><b>В избранное</b></a>
+</section>
+<section class='description'>
+<p>Рубашка Medicine выполнена из вискозной ткани с клетчатым узором.
+<br>
+Детали:прямой крой, отложной воротник, планка и манжеты на пуговицах, карман на груди.
+</p>
+</section>
+</main>
+<footer class='social-networks'>
+<section class='text'>
+<p>Поделиться:</p></section>
+<section class='vk'> </section>
+<section class='google'> </section>
+<section class='facebook'> </section>
+<section class='twitter'> </section>
+<section class='dialog'>123</section>
+</footer>
+</main>
+</main>
+</body>
