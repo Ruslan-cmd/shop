@@ -25,9 +25,11 @@ function getProductCard($link)
 {
     $test = $_GET['category_id'];
     $sql = 'select
+       p.id as product_id,
 p.header as product_name,
 ps.photo_url as photo_url,
-ps.ALT as alt
+ps.ALT as alt,
+ps.main_photo as main_photo
 from categories_products_pivot cpp
 join products p
 ON p.id=cpp.product_id
@@ -35,7 +37,7 @@ JOIN photos_products_pivot ppp
 on ppp.product_id=p.id
 JOIN photos ps
 on ps.id = ppp.photo_id
-where cpp.category_id ='.$test;
+where (ps.main_photo=1) AND cpp.category_id ='.$test;
     $res = mysqli_query($link, $sql);
     $cat = mysqli_fetch_all($res,
         MYSQLI_ASSOC);
@@ -52,8 +54,8 @@ $productCard = getProductCard($link);
     <title>Категория</title>
 </head>
 <body>
-<p><a class="back" href="index.php">Назад</a></p>
 <p><a name="top"></a></p>
+<p><a class="back" href="index.php">Назад</a></p>
 <?php foreach ($headCategory as $item) { ?>
     <header class="main-header">
         <h1><?php echo $item['category_name'] ?></h1>
@@ -66,7 +68,7 @@ $productCard = getProductCard($link);
 <section class="product-card">
 <header class="product-card-header">
 <p class="category-name"><?= $item['category_name'] ?></p>
-    <p class="product-name"><?= $product['product_name'] ?></p>
+    <p class="product-name"><a href="specific_product.php?product_id=<?=$product['product_id']?>"><?= $product['product_name'] ?></a></p>
 </header>
     <article class="product-card-photo">
         <img src="img/<?= $product['photo_url'] ?>"
