@@ -68,7 +68,8 @@ $productCard = getProductCard($link);
 <section class="product-card">
 <header class="product-card-header">
 <p class="category-name"><?= $item['category_name'] ?></p>
-    <p class="product-name"><a href="specific_product.php?product_id=<?=$product['product_id']?>"><?= $product['product_name'] ?></a></p>
+    <?php $test = $_GET['category_id'];?>
+    <p class="product-name"><a href="specific_product.php?product_id=<?=$product['product_id']?>&category_id=<?=$test?>"><?= $product['product_name'] ?></a></p>
 </header>
     <article class="product-card-photo">
         <img src="img/<?= $product['photo_url'] ?>"

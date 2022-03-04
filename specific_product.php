@@ -30,6 +30,23 @@ WHERE p.id='.$test;
         MYSQLI_ASSOC);
     return $cat;
 }
+function getPhotoProduct($link){
+    $test = $_GET['product_id'];
+    $sql = 'select p.header,
+ps.photo_url as photo_url,
+ps.ALT as alt
+from products p
+join photos_products_pivot ppp
+on ppp.product_id=p.id
+JOIN photos ps
+on ps.id = ppp.photo_id
+WHERE p.id='.$test;
+    $res = mysqli_query($link, $sql);
+    $cat = mysqli_fetch_all($res,
+        MYSQLI_ASSOC);
+    return $cat;
+}
+$photoProduct = getPhotoProduct($link);
 $mainProduct = getMainProduct($link);
  ?>
 <!DOCTYPE html>
@@ -38,6 +55,20 @@ $mainProduct = getMainProduct($link);
 <link rel="stylesheet" href="style.css">
 <script type='text/javascript' src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <title>Форма регистрации</title>
+    <script type='text/javascript'>
+        $(document).ready(function(){
+
+            $('body').on('click', '#first-photo', function(){
+                $("#first-photo").clone().replaceAll($("#right-photo")).css({
+                    'margin-top':'40%',
+                    'width':'50%',
+                    'height':'400px'
+                }).attr({
+                    id: "right-photo",
+                });
+            });
+        });
+    </script>
 <script type='text/javascript'>
     $(document).ready(function() {
         $('body').on('click', '.number-minus', function(){
@@ -69,22 +100,20 @@ $(document).ready(function() {
 </script>
 </head>
 <body>
+<?php $test = $_GET['category_id'] ?>
+<p><a class="back" href="specific_category.php?category_id=<?=$test?>"">Назад</a></p>
 <main class = 'main-block'>
+
 <aside class= 'photo-slide'>
 <article class='left-photos'>
-<a class='first-photo' id='first-photo'>
-<p></p>
-</a>
-<a class='second-photo' id='second-photo'>
-</a>
-<a class='third-photo' id='third-photo'>
-</a>
-<section class='slider-icon'>
-</section>
+    <?php foreach ($photoProduct as $photo){ ?>
+<img src="img/<?=$photo['photo_url']?>" class='first-photo' id='first-photo' alt="<?= $photo['alt']?>">
+    <?php  } ?>
 </article>
-<a href='#' class='right-photo' id='right-photo'>
-<p></p>
-</a>
+    <?php foreach ($photoProduct as $photo){ ?>
+<img  src="img/<?=$photo['photo_url']?>" class='right-photo' id='right-photo' alt="<?= $photo['alt']?>">
+    <?php break; } ?>
+
 </aside>
 <main class='main-information'>
 <header class= 'clothing-name'>
