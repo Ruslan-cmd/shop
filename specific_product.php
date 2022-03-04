@@ -100,8 +100,8 @@ $(document).ready(function() {
 </script>
 </head>
 <body>
-<?php $test = $_GET['category_id'] ?>
-<p><a class="back" href="specific_category.php?category_id=<?=$test?>"">Назад</a></p>
+<?php $test = $_GET['category_id']?>
+<p><a class="back" href="specific_category.php?count=<?= $_GET['count'] ?>&category_id=<?=$test?>"">Назад</a></p>
 <main class = 'main-block'>
 
 <aside class= 'photo-slide'>

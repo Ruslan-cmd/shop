@@ -32,7 +32,7 @@ $cat = getCategories($link);
         foreach ($cat as $item){
         ?>
 
-             <a href="specific_category.php?category_id=<?=$item['id']?>"><?php echo $item['name'].' '.$item['products_count']?></a>
+             <a href="specific_category.php?category_id=<?=$item['id']?>&count=<?= $item['products_count']?>"><?php echo $item['name'].' '.$item['products_count']?></a>
 
 
            <!-- <form action="category<?php echo $item['id']?>.php" method="post">

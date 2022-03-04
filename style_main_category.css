@@ -50,6 +50,7 @@ footer a{
     color:#800080;
     text-decoration: none;
 }
+
 .product-card-photo{
     padding:40px;
 }
@@ -60,4 +61,10 @@ footer a{
 .product-name a:visited{
     text-decoration: none;
     color:black;
+}
+.pagination a{
+    font-size: 15px;
+    text-transform:uppercase;
+    color:#800080;
+    text-decoration: none;
 }
